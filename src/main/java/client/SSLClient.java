@@ -9,10 +9,13 @@ import client.http.socketsender.Constants;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.util.*;
+import java.io.IOException;;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SSLClient {
 
@@ -56,7 +59,6 @@ public class SSLClient {
                             .map(new HashMap<>())
                             .build()).build());
             realLinks.add(send.getHeaders().location());
-            System.out.println(realLinks.size());
         });
 
         Map<String, Integer> imgLinkContentLengthMap = new HashMap<>();
