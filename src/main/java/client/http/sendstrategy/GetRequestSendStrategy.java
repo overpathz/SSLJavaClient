@@ -20,7 +20,7 @@ public class GetRequestSendStrategy extends BaseStrategy {
         setHostHeader(request);
         String stringHttpRequest = getConverter().convertRequestObjToString(request);
         String uri = request.getUri();
-        String rawResponse = getCommunicator().send(stringHttpRequest.getBytes(), uri);
+        String rawResponse = getCommunicator().send(stringHttpRequest, uri, request.getHttpMethod().name());
         parseResponse(rawResponse);
         ResponseParser respParser = getHttpParser().getResponseParser();
         return HttpResponse.builder()

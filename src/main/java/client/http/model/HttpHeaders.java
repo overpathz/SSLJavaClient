@@ -16,24 +16,31 @@ public class HttpHeaders {
     }
 
     public String location() {
-        return map.get(Headers.Location.name());
+        return map.get(Headers.Location.value());
     }
 
     public String contentType() {
-        return map.get(Headers.ContentType.name());
+        return map.get(Headers.ContentType.value());
     }
 
     public String contentLength() {
-        return map.get(Headers.ContentLength.name());
+        return map.get(Headers.ContentLength.value());
     }
 
     private enum Headers {
+
         Location("Location"),
-        AcceptType("Accept"),
         ContentType("Content-Type"),
         ContentLength("Content-Length");
 
+        private final String header;
+
         Headers(String header) {
+            this.header = header;
+        }
+
+        public String value() {
+            return header;
         }
     }
 }
